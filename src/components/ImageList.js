@@ -1,15 +1,15 @@
-import React from 'react';
+// Goal: Show a list of images
 
-const ImageList = ({ images }) => (
-  <div>
-    {images.map(image => (
-      <img
-        src={image.urls.regular}
-        alt={image.alt_description}
-        key={image.id}
-      />
-    ))}
-  </div>
-);
+import React from 'react';
+import './ImageList.css';
+import ImageCard from './ImageCard';
+
+const ImageList = ({ images }) => {
+  const renderImages = images.map(image => (
+    <ImageCard image={image} key={image.id} />
+  ));
+
+  return <div className="image-list">{renderImages}</div>;
+};
 
 export default ImageList;
